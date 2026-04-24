@@ -70,7 +70,7 @@ export const projects = [
     ],
   },
   {
-    title: "PennyWings - Budget Tracker",
+    title: "Budget Tracker",
     description:
       "A scalable full-stack budget tracking application featuring real-time synchronization, AI-powered financial insights, and secure authentication.",
     details:
