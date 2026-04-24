@@ -80,7 +80,8 @@ const Home = () => {
           >
             <motion.a
               href={CV}
-              download="Francis_Cortez_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors duration-300 text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
