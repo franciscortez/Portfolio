@@ -22,10 +22,7 @@ const LandingPage = () => (
     <section id="home">
       <Home />
     </section>
-    <hr className="section-divider" />
-    <section id="about">
-      <Profile />
-    </section>
+
     <hr className="section-divider" />
     <section id="skills">
       <Skills />

@@ -59,7 +59,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            Aspiring Full Stack Developer
+            Full Stack Developer
           </motion.h2>
 
           <motion.p
@@ -68,8 +68,9 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            Passionate web developer with strong computer literacy, actively
-            expanding my development skills.
+            Full-stack developer with internship experience building scalable
+            web applications, RESTful APIs, and seamless integrations using
+            modern technologies and best practices.
           </motion.p>
 
           <motion.div
