@@ -234,7 +234,7 @@ The portfolio is fully responsive with breakpoints:
 **Francis Emil M. Cortez (Bam)**
 
 - Email: [Contact via website](https://francisemilcortez.vercel.app/)
-- LinkedIn: [cortez-francis-emil-m](https://www.linkedin.com/in/cortez-francis-emil-m-957521369/)
+- LinkedIn: [francisemilcortez](https://www.linkedin.com/in/francisemilcortez/)
 - GitHub: [@bamcortezz](https://github.com/bamcortezz)
 - Facebook: [bambam.m.cortez](https://www.facebook.com/bambam.m.cortez/)
 

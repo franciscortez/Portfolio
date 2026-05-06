@@ -3,10 +3,59 @@ import {
   FaUserCircle,
   FaGraduationCap,
   FaTrophy,
-  FaBullseye,
+  FaBriefcase,
 } from "react-icons/fa";
 
 const Profile = () => {
+  const experiences = [
+    {
+      title: "Backend Developer - Intern",
+      company: "Nola Web Solutions",
+      date: "February - April 2026",
+      location: "Pampanga, Philippines",
+      isLatest: true,
+    },
+  ];
+
+  const education = [
+    {
+      school: "Pampanga State University",
+      degree: "Bachelor of Science in Information Technology",
+      date: "2022 - 2026",
+      location: "Cabambangan, Bacolor, Pampanga",
+      awards: [
+        "Dean's List (1st Semester 2022-2023)",
+        "Dean's List (1st Semester 2023-2024)",
+        "President's List (A.Y. 2024-2025)",
+        "Rank 09 Overall in College of Computing Studies (2nd Semester 2024-2025)",
+      ],
+    },
+    {
+      school: "Assumpta Technical High School",
+      degree: "Science, Technology, Engineering, and Mathematics",
+      date: "2020 - 2022",
+      location: "Sta Monica, San Simon, Pampanga",
+    },
+  ];
+
+  const certifications = [
+    {
+      provider: "IBM Skill Build",
+      name: "Cloud Computing Fundamentals",
+    },
+    {
+      provider: "Cisco Networking Academy",
+      items: [
+        "JavaScript Essentials 1",
+        "Introduction to IoT and Digital Transformation",
+      ],
+    },
+    {
+      provider: "TESDA Online Course",
+      name: "Computer System Servicing NCII",
+    },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -46,7 +95,7 @@ const Profile = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Left Column - Personal Info */}
+          {/* Left Column - Summary & Education */}
           <motion.div className="space-y-8" variants={sectionVariants}>
             <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
@@ -56,16 +105,17 @@ const Profile = () => {
             >
               <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
                 <FaUserCircle className="text-3xl text-white" />
-                Who I Am
+                Professional Summary
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Hello! I'm Francis Emil M. Cortez, but you can call me Bam. I'm
-                from Pampanga, Philippines. I'm known for being a fun-loving
-                person who enjoys making the most out of life. In my free time,
-                you'll find me either immersed in video games, shooting hoops on
-                the basketball court, or diving deep into coding projects.
-                Programming isn't just a skill for me - it's a passion that I
-                pursue whenever I have spare time.
+                I am Francis Emil M. Cortez, a dedicated Full Stack Developer
+                from Pampanga, Philippines, with a strong focus on building
+                scalable web applications and efficient backend systems. My
+                passion for programming drives me to constantly refine my skills
+                and stay updated with modern technologies. I am committed to
+                delivering high-quality, professional solutions and aim to
+                contribute meaningfully to impactful projects while continuously
+                growing as a software engineering professional.
               </p>
             </motion.div>
 
@@ -79,51 +129,34 @@ const Profile = () => {
                 <FaGraduationCap className="text-3xl text-white" />
                 Education
               </h2>
-              <div className="text-gray-400 leading-relaxed space-y-6">
-                <div>
-                  <h3 className="text-white font-medium text-lg">
-                    Pampanga State University
-                  </h3>
-                  <p className="text-gray-400 mt-1">
-                    Bachelor of Science in Information Technology
-                  </p>
-                  <p className="text-gray-400">2022 - Present</p>
-                  <p className="text-gray-400 italic">
-                    Cabambangan, Bacolor, Pampanga
-                  </p>
-                  <div className="mt-3">
-                    <p className="text-white font-medium mb-1">
-                      Awards and Recognitions:
-                    </p>
-                    <ul className="list-disc list-inside ml-2 space-y-1">
-                      <li>Dean's List (1st Semester 2022-2023)</li>
-                      <li>Dean's List (1st Semester 2023-2024)</li>
-                      <li>President's List (A.Y. 2024-2025)</li>
-                      <li>
-                        Rank 09 Overall in College of Computing Studies (1st
-                        Semester 2025-2026)
-                      </li>
-                    </ul>
+              <div className="text-gray-400 leading-relaxed space-y-8">
+                {education.map((edu, index) => (
+                  <div key={index}>
+                    <h3 className="text-white font-medium text-lg">
+                      {edu.school}
+                    </h3>
+                    <p className="text-gray-400 mt-1">{edu.degree}</p>
+                    <p className="text-gray-400">{edu.date}</p>
+                    <p className="text-gray-400 italic">{edu.location}</p>
+                    {edu.awards && (
+                      <div className="mt-3">
+                        <p className="text-white font-medium mb-1">
+                          Awards and Recognitions:
+                        </p>
+                        <ul className="list-disc list-inside ml-2 space-y-1">
+                          {edu.awards.map((award, aIndex) => (
+                            <li key={aIndex}>{award}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                </div>
-
-                <div>
-                  <h3 className="text-white font-medium text-lg">
-                    Assumpta Technical High School
-                  </h3>
-                  <p className="text-gray-400 mt-1">
-                    Science, Technology, Engineering, and Mathematics
-                  </p>
-                  <p className="text-gray-400">2016 - 2022</p>
-                  <p className="text-gray-400 italic">
-                    Sta Monica, San Simon, Pampanga
-                  </p>
-                </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Goals and Interests */}
+          {/* Right Column - Experience & Certifications */}
           <motion.div className="space-y-8" variants={sectionVariants}>
             <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
@@ -132,18 +165,32 @@ const Profile = () => {
               transition={{ duration: 0.3 }}
             >
               <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
-                <FaBullseye className="text-3xl text-white" />
-                My Goals
+                <FaBriefcase className="text-3xl text-white" />
+                Work Experience
               </h2>
-              <p className="text-gray-400 leading-relaxed">
-                My primary goal is to become a successful full stack developer.
-                I am committed to being highly proficient and efficient in my
-                work, constantly striving to improve my skills and deliver
-                high-quality solutions. Through dedication and hard work, I aim
-                to build a successful career in software development, where I
-                can contribute meaningfully to impactful projects and continue
-                growing as a professional.
-              </p>
+              <div className="relative border-l-2 border-gray-700 ml-4 space-y-12">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="relative pl-8">
+                    {/* Timeline Circle */}
+                    <div
+                      className={`absolute w-4 h-4 rounded-full -left-[9px] top-1.5 ring-4 ring-black ${
+                        exp.isLatest ? "bg-white" : "bg-gray-500"
+                      }`}
+                    />
+
+                    <div className="space-y-1">
+                      <h3 className="text-white font-semibold text-xl">
+                        {exp.title}
+                      </h3>
+                      <p className="text-gray-300 font-medium">{exp.company}</p>
+                      <p className="text-gray-500 text-sm">{exp.date}</p>
+                      <p className="text-gray-500 text-sm italic">
+                        {exp.location}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
@@ -157,46 +204,21 @@ const Profile = () => {
                 Certifications
               </h2>
               <div className="text-gray-400 leading-relaxed space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-white font-medium">IBM Skill Build</h3>
-                  <p className="text-gray-300 ml-2">
-                    Cloud Computing Fundamentals
-                  </p>
-                  <ul className="list-disc list-inside ml-6 space-y-1 text-sm">
-                    <li>Introduction to Cloud Computing</li>
-                    <li>Understanding Cloud Computing Services</li>
-                    <li>Understanding Cloud Deployment Modes</li>
-                    <li>Virtualization on the Cloud</li>
-                    <li>Developing and Deploying Software in the Cloud</li>
-                    <li>
-                      Introduction to Data Management and Security in Cloud
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-white font-medium">
-                    Cisco Networking Academy
-                  </h3>
-                  <ul className="list-disc list-inside ml-2 space-y-1">
-                    <li>Introduction to IoT and Digital Transformation</li>
-                    <li>JavaScript Essentials 1</li>
-                  </ul>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-white font-medium">
-                    TESDA Online Course
-                  </h3>
-                  <p className="text-gray-300 ml-2">
-                    Computer System Servicing NCII
-                  </p>
-                  <ul className="list-disc list-inside ml-6 space-y-1 text-sm">
-                    <li>Introduction to CSS</li>
-                    <li>Installing and Configuring Computer Systems</li>
-                    <li>Setting Up Computer Networks</li>
-                  </ul>
-                </div>
+                {certifications.map((cert, index) => (
+                  <div key={index} className="space-y-2">
+                    <h3 className="text-white font-medium">{cert.provider}</h3>
+                    {cert.name && (
+                      <p className="text-gray-300 ml-2">{cert.name}</p>
+                    )}
+                    {cert.items && (
+                      <ul className="list-disc list-inside ml-2 space-y-1">
+                        {cert.items.map((item, iIndex) => (
+                          <li key={iIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>

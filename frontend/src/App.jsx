@@ -24,14 +24,25 @@ const LandingPage = () => (
     </section>
 
     <hr className="section-divider" />
+
     <section id="skills">
       <Skills />
     </section>
+
     <hr className="section-divider" />
+
     <section id="projects">
       <Projects />
     </section>
+
     <hr className="section-divider" />
+
+    <section id="about">
+      <Profile />
+    </section>
+
+    <hr className="section-divider" />
+
     <section id="contact">
       <Contact />
     </section>

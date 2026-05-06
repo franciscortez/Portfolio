@@ -32,7 +32,7 @@ const Contact = () => {
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://www.linkedin.com/in/cortez-francis-emil-m-957521369/",
+      url: "https://www.linkedin.com/in/francisemilcortez/",
       iconColor: "text-blue-600",
       bgColor: "bg-blue-600/10",
       hoverBgColor: "group-hover:bg-blue-600/20",

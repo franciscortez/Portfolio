@@ -10,10 +10,21 @@ import {
   BiLogoNodejs,
   BiLogoGit,
   BiLogoMongodb,
-  BiLogoDiscord,
   BiLogoTrello,
 } from "react-icons/bi";
-import { SiMysql } from "react-icons/si";
+import {
+  SiMysql,
+  SiLaravel,
+  SiExpress,
+  SiFirebase,
+  SiSupabase,
+  SiPhpmyadmin,
+  SiDocker,
+  SiHostinger,
+  SiGooglecloud,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { FaNetworkWired, FaCode } from "react-icons/fa";
 
 const Skills = () => {
   const techStack = [
@@ -32,18 +43,38 @@ const Skills = () => {
       category: "Backend Development",
       technologies: [
         { name: "PHP", icon: BiLogoPhp },
-        { name: "MySQL", icon: SiMysql },
-        { name: "MongoDB", icon: BiLogoMongodb },
+        { name: "Laravel", icon: SiLaravel },
         { name: "Node.js", icon: BiLogoNodejs },
+        { name: "Express", icon: SiExpress },
+        { name: "RESTful API", icon: TbApi },
       ],
     },
     {
-      category: "Others",
+      category: "Database Management",
+      technologies: [
+        { name: "MySQL", icon: SiMysql },
+        { name: "MongoDB", icon: BiLogoMongodb },
+        { name: "Supabase", icon: SiSupabase },
+        { name: "Firebase", icon: SiFirebase },
+        { name: "phpMyAdmin", icon: SiPhpmyadmin },
+      ],
+    },
+    {
+      category: "Tools & Technologies",
       technologies: [
         { name: "Git", icon: BiLogoGit },
         { name: "GitHub", icon: AiFillGithub },
-        { name: "Discord", icon: BiLogoDiscord },
+        { name: "Docker", icon: SiDocker },
         { name: "Trello", icon: BiLogoTrello },
+        { name: "Hostinger", icon: SiHostinger },
+        { name: "GCP", icon: SiGooglecloud },
+      ],
+    },
+    {
+      category: "Technical Concepts",
+      technologies: [
+        { name: "OOP", icon: FaCode },
+        { name: "Networking", icon: FaNetworkWired },
       ],
     },
   ];
