@@ -60,9 +60,12 @@ import pw11 from "@/assets/img/projects/pennywings/Screenshot 2026-04-24 130746.
 import pw12 from "@/assets/img/projects/pennywings/Screenshot 2026-04-24 130801.png";
 
 // Portfolio Images
-import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
-import portfolio1 from "@/assets/img/projects/portfolio/portfolio1.png";
-import portfolio2 from "@/assets/img/projects/portfolio/portfolio2.png";
+import portfolio1 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195841.png";
+import portfolio2 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195848.png";
+import portfolio3 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195854.png";
+import portfolio4 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195859.png";
+import portfolio5 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195906.png";
+import portfolio6 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 195913.png";
 
 export const projects = [
   {
@@ -167,8 +170,15 @@ export const projects = [
       github: "https://github.com/bamcortezz/Portfolio",
       live: "https://francisemilcortez.vercel.app/",
     },
-    image: portfolioImg,
-    images: [portfolioImg, portfolio1, portfolio2],
+    image: portfolio1,
+    images: [
+      portfolio1,
+      portfolio2,
+      portfolio3,
+      portfolio4,
+      portfolio5,
+      portfolio6,
+    ],
     galleryDir: "portfolio",
     features: [
       "Modern Responsive Design",
