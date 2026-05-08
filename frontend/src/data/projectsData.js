@@ -20,6 +20,30 @@ import {
 import twitchInsightImg from "@/assets/img/projects/twitch-insight/twitch-insight.png";
 import twitchInsight1 from "@/assets/img/projects/twitch-insight/twitch-insight1.png";
 import twitchInsight2 from "@/assets/img/projects/twitch-insight/twitch-insight2.png";
+import twitchInsight3 from "@/assets/img/projects/twitch-insight/twitch-insight3.png";
+import twitchInsight4 from "@/assets/img/projects/twitch-insight/twitch-insight4.png";
+import twitchInsight5 from "@/assets/img/projects/twitch-insight/twitch-insight5.png";
+import twitchInsight6 from "@/assets/img/projects/twitch-insight/twitch-insight6.png";
+import twitchInsight7 from "@/assets/img/projects/twitch-insight/twitch-insight7.png";
+import twitchInsight8 from "@/assets/img/projects/twitch-insight/twitch-insight8.png";
+import twitchInsight9 from "@/assets/img/projects/twitch-insight/twitch-insight9.png";
+import twitchInsight10 from "@/assets/img/projects/twitch-insight/twitch-insight10.png";
+import twitchInsight11 from "@/assets/img/projects/twitch-insight/twitch-insight11.png";
+import twitchInsight12 from "@/assets/img/projects/twitch-insight/twitch-insight12.png";
+import twitchInsight13 from "@/assets/img/projects/twitch-insight/twitch-insight13.png";
+import twitchInsight14 from "@/assets/img/projects/twitch-insight/twitch-insight14.png";
+import twitchInsight15 from "@/assets/img/projects/twitch-insight/twitch-insight15.png";
+import twitchInsight16 from "@/assets/img/projects/twitch-insight/twitch-insight16.png";
+import twitchInsight17 from "@/assets/img/projects/twitch-insight/twitch-insight17.png";
+import twitchInsight18 from "@/assets/img/projects/twitch-insight/twitch-insight18.png";
+import twitchInsight19 from "@/assets/img/projects/twitch-insight/twitch-insight19.png";
+import twitchInsight20 from "@/assets/img/projects/twitch-insight/twitch-insight20.png";
+import twitchInsight21 from "@/assets/img/projects/twitch-insight/twitch-insight21.png";
+import twitchInsight22 from "@/assets/img/projects/twitch-insight/twitch-insight22.png";
+import twitchInsight23 from "@/assets/img/projects/twitch-insight/twitch-insight23.png";
+import twitchInsight24 from "@/assets/img/projects/twitch-insight/twitch-insight24.png";
+import twitchInsight25 from "@/assets/img/projects/twitch-insight/twitch-insight25.png";
+import twitchInsight26 from "@/assets/img/projects/twitch-insight/twitch-insight26.png";
 
 // PennyWings Images
 import pw1 from "@/assets/img/projects/pennywings/Screenshot 2026-04-24 130418.png";
@@ -59,7 +83,35 @@ export const projects = [
       github: "https://github.com/bamcortezz/Capstone",
     },
     image: twitchInsightImg,
-    images: [twitchInsightImg, twitchInsight1, twitchInsight2],
+    images: [
+      twitchInsightImg,
+      twitchInsight1,
+      twitchInsight2,
+      twitchInsight3,
+      twitchInsight4,
+      twitchInsight5,
+      twitchInsight6,
+      twitchInsight7,
+      twitchInsight8,
+      twitchInsight9,
+      twitchInsight10,
+      twitchInsight11,
+      twitchInsight12,
+      twitchInsight13,
+      twitchInsight14,
+      twitchInsight15,
+      twitchInsight16,
+      twitchInsight17,
+      twitchInsight18,
+      twitchInsight19,
+      twitchInsight20,
+      twitchInsight21,
+      twitchInsight22,
+      twitchInsight23,
+      twitchInsight24,
+      twitchInsight25,
+      twitchInsight26,
+    ],
     galleryDir: "twitch-insight",
     features: [
       "Real-time chat sentiment analysis",
