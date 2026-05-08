@@ -83,7 +83,7 @@ export const projects = [
       { name: "Flask", icon: SiFlask, color: "text-gray-400" },
     ],
     links: {
-      github: "https://github.com/bamcortezz/Capstone",
+      github: "https://github.com/franciscortez/Capstone",
     },
     image: twitchInsightImg,
     images: [
@@ -167,7 +167,7 @@ export const projects = [
       { name: "Tailwind", icon: SiTailwindcss, color: "text-[#38B2AC]" },
     ],
     links: {
-      github: "https://github.com/bamcortezz/Portfolio",
+      github: "https://github.com/franciscortez/Portfolio",
       live: "https://francisemilcortez.vercel.app/",
     },
     image: portfolio1,

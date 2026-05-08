@@ -83,7 +83,7 @@ frontend/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/bamcortezz/Portfolio.git
+   git clone https://github.com/franciscortez/Portfolio.git
    cd Portfolio/frontend
    ```
 
@@ -149,14 +149,14 @@ Featured projects with live demos:
 Real-time sentiment analysis platform for Twitch streamers using RoBERTa NLP model
 
 - **Tech:** React, Tailwind, MongoDB, Python, Flask
-- **GitHub:** [View Repository](https://github.com/bamcortezz/Capstone)
+- **GitHub:** [View Repository](https://github.com/franciscortez/Capstone)
 
 #### Budget Tracker (Personal Project)
 
 Personal finance management application with MVC architecture
 
 - **Tech:** PHP, MySQL, Tailwind CSS, Chart.js
-- **GitHub:** [View Repository](https://github.com/bamcortezz/BudgetTracker)
+- **GitHub:** [View Repository](https://github.com/franciscortez/PennyWings)
 - **Live Demo:** [Visit Site](https://bloomtracker.free.nf/)
 
 #### Portfolio (Personal Project)
@@ -164,7 +164,7 @@ Personal finance management application with MVC architecture
 This website - modern portfolio with smooth animations
 
 - **Tech:** React, Tailwind CSS
-- **GitHub:** [View Repository](https://github.com/bamcortezz/Portfolio)
+- **GitHub:** [View Repository](https://github.com/franciscortez/Portfolio)
 - **Live Demo:** [Visit Site](https://francisemilcortez.vercel.app/)
 
 ### 5. Contact
@@ -235,7 +235,7 @@ The portfolio is fully responsive with breakpoints:
 
 - Email: [Contact via website](https://francisemilcortez.vercel.app/)
 - LinkedIn: [francisemilcortez](https://www.linkedin.com/in/francisemilcortez/)
-- GitHub: [@bamcortezz](https://github.com/bamcortezz)
+- GitHub: [@franciscortez](https://github.com/franciscortez)
 - Facebook: [bambam.m.cortez](https://www.facebook.com/bambam.m.cortez/)
 
 ## 📄 License
