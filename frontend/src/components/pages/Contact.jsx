@@ -11,53 +11,80 @@ import {
 import { ImSpinner8 } from "react-icons/im";
 import Swal from "sweetalert2";
 
+// Moved outside to prevent re-creation on every render
+const SOCIAL_LINKS = [
+  {
+    name: "Facebook",
+    icon: FaFacebook,
+    url: "https://www.facebook.com/bambam.m.cortez/",
+    iconColor: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+    hoverBgColor: "group-hover:bg-blue-500/20",
+  },
+  {
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    url: "https://www.linkedin.com/in/francisemilcortez/",
+    iconColor: "text-blue-600",
+    bgColor: "bg-blue-600/10",
+    hoverBgColor: "group-hover:bg-blue-600/20",
+  },
+  {
+    name: "GitHub",
+    icon: FaGithub,
+    url: "https://github.com/franciscortez",
+    iconColor: "text-gray-400",
+    bgColor: "bg-gray-400/10",
+    hoverBgColor: "group-hover:bg-gray-400/20",
+  },
+];
+
+// Shared Toast configuration for consistent UI notifications
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  background: "#1a1a1a",
+  color: "#fff",
+  didOpen: (toast) => {
+    toast.addEventListener("mouseenter", Swal.stopTimer);
+    toast.addEventListener("mouseleave", Swal.resumeTimer);
+  },
+});
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    botcheck: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const socialLinks = [
-    {
-      name: "Facebook",
-      icon: FaFacebook,
-      url: "https://www.facebook.com/bambam.m.cortez/",
-      iconColor: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-      hoverBgColor: "group-hover:bg-blue-500/20",
-    },
-    {
-      name: "LinkedIn",
-      icon: FaLinkedin,
-      url: "https://www.linkedin.com/in/francisemilcortez/",
-      iconColor: "text-blue-600",
-      bgColor: "bg-blue-600/10",
-      hoverBgColor: "group-hover:bg-blue-600/20",
-    },
-    {
-      name: "GitHub",
-      icon: FaGithub,
-      url: "https://github.com/franciscortez",
-      iconColor: "text-gray-400",
-      bgColor: "bg-gray-400/10",
-      hoverBgColor: "group-hover:bg-gray-400/20",
-    },
-  ];
-
   const handleChange = useCallback((e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   }, []);
 
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+
+      // Simple validation check
+      if (!formData.name || !formData.email || !formData.message) {
+        return Toast.fire({
+          icon: "warning",
+          title: "Please fill in all required fields",
+          iconColor: "#F59E0B",
+        });
+      }
+
       setIsSubmitting(true);
 
       try {
@@ -73,6 +100,7 @@ const Contact = () => {
             email: formData.email,
             subject: formData.subject,
             message: `From: ${formData.email}\n\n${formData.message}`,
+            botcheck: formData.botcheck,
           }),
         });
 
@@ -84,26 +112,12 @@ const Contact = () => {
             email: "",
             subject: "",
             message: "",
-          });
-
-          // Show success toast
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", Swal.stopTimer);
-              toast.addEventListener("mouseleave", Swal.resumeTimer);
-            },
+            botcheck: false,
           });
 
           await Toast.fire({
             icon: "success",
             title: "Message sent successfully!",
-            background: "#1a1a1a",
-            color: "#fff",
             iconColor: "#10B981",
           });
         } else {
@@ -112,24 +126,9 @@ const Contact = () => {
       } catch (error) {
         console.error("Web3Forms error:", error);
 
-        // Show error toast
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-
         await Toast.fire({
           icon: "error",
           title: "Failed to send message. Please try again.",
-          background: "#1a1a1a",
-          color: "#fff",
           iconColor: "#EF4444",
         });
       } finally {
@@ -172,6 +171,15 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700 space-y-6 mb-12"
         >
+          {/* Honeypot field for anti-spam (standard for Web3Forms) */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            style={{ display: "none" }}
+            onChange={handleChange}
+            checked={formData.botcheck}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative">
               <label htmlFor="name" className="block text-gray-300 mb-2">
@@ -249,6 +257,8 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
+              aria-busy={isSubmitting}
+              aria-live="polite"
               className={`w-full inline-flex items-center justify-center gap-2 px-8 py-3 font-medium rounded-lg transition-colors duration-300 ${
                 isSubmitting
                   ? "bg-gray-500 cursor-not-allowed"
@@ -277,7 +287,7 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-4"
         >
-          {socialLinks.map((link) => (
+          {SOCIAL_LINKS.map((link) => (
             <motion.a
               key={link.name}
               href={link.url}
