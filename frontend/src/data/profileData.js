@@ -39,7 +39,9 @@ export const education = [
 export const certifications = [
   {
     provider: "IBM Skill Build",
-    name: "Cloud Computing Fundamentals",
+    items: [
+      "Cloud Computing Fundamentals"
+    ],
   },
   {
     provider: "Cisco Networking Academy",
@@ -50,6 +52,8 @@ export const certifications = [
   },
   {
     provider: "TESDA Online Course",
-    name: "Computer System Servicing NCII",
+    items: [
+      "Computer System Servicing NCII"
+    ],
   },
 ];
