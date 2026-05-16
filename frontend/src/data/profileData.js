@@ -1,10 +1,17 @@
 export const experiences = [
   {
+    title: "Full Stack Developer",
+    company: "SATEZO",
+    date: "May 2026 - Present",
+    location: "Pampanga, Philippines",
+    isLatest: true,
+  },
+  {
     title: "Backend Developer - Intern",
     company: "Nola Web Solutions",
     date: "February - April 2026",
     location: "Pampanga, Philippines",
-    isLatest: true,
+    isLatest: false,
   },
 ];
 

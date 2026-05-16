@@ -68,9 +68,9 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            Full-stack developer with internship experience building scalable
-            web applications, RESTful APIs, and seamless integrations using
-            modern technologies and best practices.
+            Full-stack developer building scalable web applications, RESTful
+            APIs, and seamless integrations using modern technologies and best
+            practices.
           </motion.p>
 
           <motion.div
