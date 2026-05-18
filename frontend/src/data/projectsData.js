@@ -4,12 +4,6 @@ import {
   SiMongodb,
   SiPython,
   SiFlask,
-  SiPhp,
-  SiMysql,
-  SiJavascript,
-  SiHtml5,
-  SiBootstrap,
-  SiChartdotjs,
   SiSupabase,
   SiPostgresql,
   SiReactquery,
@@ -115,7 +109,6 @@ export const projects = [
       twitchInsight25,
       twitchInsight26,
     ],
-    galleryDir: "twitch-insight",
     features: [
       "Real-time chat sentiment analysis",
       "RoBERTa NLP model integration",
@@ -130,7 +123,7 @@ export const projects = [
       "A scalable full-stack budget tracking application featuring real-time synchronization, AI-powered financial insights, and secure authentication.",
     details:
       "Built a scalable full-stack app using ReactJS, Tailwind CSS, and Supabase (PostgreSQL, Auth, Realtime) with secure authentication and Row Level Security (RLS). Implemented real-time data synchronization and caching using Supabase Realtime and TanStack Query, enabling fast, responsive financial tracking across devices. Developed core features including accounts, transactions, budgets, analytics dashboards, and an AI assistant (Google Gemini API) for personalized financial insights.",
-    type: "Full Stack Project",
+    type: "Personal Project",
     technologies: [
       { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
       { name: "Tailwind", icon: SiTailwindcss, color: "text-[#38B2AC]" },
@@ -145,7 +138,6 @@ export const projects = [
     },
     image: pw1,
     images: [pw1, pw2, pw3, pw4, pw5, pw6, pw7, pw8, pw9, pw10, pw11, pw12],
-    galleryDir: "pennywings",
     features: [
       "Secure Authentication & Row Level Security (RLS)",
       "Real-time Data Synchronization with Supabase",
@@ -179,7 +171,6 @@ export const projects = [
       portfolio5,
       portfolio6,
     ],
-    galleryDir: "portfolio",
     features: [
       "Modern Responsive Design",
       "Smooth Animations (Framer Motion)",

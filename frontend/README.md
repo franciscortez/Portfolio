@@ -30,7 +30,6 @@ A modern, responsive portfolio website showcasing my development expertise, proj
 
 - **Framer Motion 12.15.0** - Advanced animation library
 - **React Icons 5.5.0** - Icon library with extensive collection
-- **React Slick 0.30.3** - Carousel functionality
 - **SweetAlert2 11.22.0** - Beautiful toast notifications
 
 ### Build Tools
@@ -56,6 +55,7 @@ frontend/
 │   │       ├── ProjectDetails.jsx     # Individual project detail pages
 │   │       └── Contact.jsx            # Contact form and social links
 │   ├── data/
+│   │   ├── profileData.js             # Experience, education, and certifications
 │   │   └── projectsData.js            # Centralized project information
 │   ├── assets/
 │   │   ├── cv/                        # Resume/CV files
@@ -124,23 +124,17 @@ frontend/
 
 Hero section with profile image, introduction, and downloadable CV
 
-### 2. About
-
-Personal background, educational achievements, career goals, and professional certifications including:
-
-- IBM Skill Build (Cloud Computing Fundamentals)
-- Cisco Networking Academy (IoT, JavaScript)
-- TESDA Online Course (Computer System Servicing NCII)
-
-### 3. Skills
+### 2. Skills
 
 Categorized tech stack display:
 
 - **Frontend:** HTML, CSS, JavaScript, React, Tailwind CSS, Bootstrap
-- **Backend:** PHP, MySQL, MongoDB, Node.js
-- **Tools:** Git, GitHub, Discord, Trello
+- **Backend:** PHP, Laravel, Node.js, Express, RESTful API
+- **Databases:** MySQL, MongoDB, Supabase, Firebase, phpMyAdmin
+- **Tools:** Git, GitHub, Docker, Trello, Hostinger, GCP
+- **Concepts:** OOP, Networking
 
-### 4. Projects
+### 3. Projects
 
 Featured projects with live demos:
 
@@ -151,13 +145,13 @@ Real-time sentiment analysis platform for Twitch streamers using RoBERTa NLP mod
 - **Tech:** React, Tailwind, MongoDB, Python, Flask
 - **GitHub:** [View Repository](https://github.com/franciscortez/Capstone)
 
-#### Budget Tracker (Personal Project)
+#### Budget Tracker (Full Stack Project)
 
-Personal finance management application with MVC architecture
+Scalable finance tracking application with real-time synchronization, secure authentication, analytics dashboards, and AI-powered financial insights
 
-- **Tech:** PHP, MySQL, Tailwind CSS, Chart.js
+- **Tech:** React, Tailwind CSS, Supabase, PostgreSQL, TanStack Query, Google Gemini
 - **GitHub:** [View Repository](https://github.com/franciscortez/PennyWings)
-- **Live Demo:** [Visit Site](https://bloomtracker.free.nf/)
+- **Live Demo:** [Visit Site](https://penny-wings.netlify.app/)
 
 #### Portfolio (Personal Project)
 
@@ -166,6 +160,14 @@ This website - modern portfolio with smooth animations
 - **Tech:** React, Tailwind CSS
 - **GitHub:** [View Repository](https://github.com/franciscortez/Portfolio)
 - **Live Demo:** [Visit Site](https://francisemilcortez.vercel.app/)
+
+### 4. About
+
+Personal background, work experience, educational achievements, and professional certifications including:
+
+- IBM Skill Build (Cloud Computing Fundamentals)
+- Cisco Networking Academy (IoT, JavaScript)
+- TESDA Online Course (Computer System Servicing NCII)
 
 ### 5. Contact
 
@@ -225,7 +227,7 @@ The portfolio is fully responsive with breakpoints:
 - ✅ Lazy loading for page components
 - ✅ Progressive image loading with placeholder
 - ✅ Code splitting with React.lazy
-- ✅ Memoization with React.memo and useCallback
+- ✅ Memoized event handlers with useCallback
 - ✅ Optimized animations with Framer Motion
 - ✅ Vite's built-in asset optimization
 

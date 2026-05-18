@@ -23,6 +23,7 @@ const Home = () => {
               src={profileImg}
               alt="Profile"
               className="rounded-full object-cover w-full h-full shadow-2xl"
+              eager
             />
           </motion.div>
         </motion.div>

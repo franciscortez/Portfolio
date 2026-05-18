@@ -82,6 +82,7 @@ const ProjectDetails = () => {
                   src={project.images[currentImageIndex]}
                   alt={`${project.title} screenshot ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover"
+                  eager
                 />
               </motion.div>
             </AnimatePresence>
