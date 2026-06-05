@@ -6,10 +6,14 @@ import {
   FaBriefcase,
 } from "react-icons/fa";
 
-import { experiences, education, certifications } from "../../data/profileData";
+import {
+  professionalSummary,
+  experiences,
+  education,
+  certifications,
+} from "../../data/profileData";
 
 const Profile = () => {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,14 +66,7 @@ const Profile = () => {
                 Professional Summary
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                I am Francis Emil M. Cortez, a dedicated Full Stack Developer
-                from Pampanga, Philippines, with a strong focus on building
-                scalable web applications and efficient backend systems. My
-                passion for programming drives me to constantly refine my skills
-                and stay updated with modern technologies. I am committed to
-                delivering high-quality, professional solutions and aim to
-                contribute meaningfully to impactful projects while continuously
-                growing as a software engineering professional.
+                {professionalSummary}
               </p>
             </motion.div>
 
@@ -141,6 +138,13 @@ const Profile = () => {
                       <p className="text-gray-500 text-sm italic">
                         {exp.location}
                       </p>
+                      {exp.responsibilities && (
+                        <ul className="list-disc list-inside text-gray-400 text-sm leading-relaxed space-y-2 pt-3">
+                          {exp.responsibilities.map((responsibility, rIndex) => (
+                            <li key={rIndex}>{responsibility}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 ))}

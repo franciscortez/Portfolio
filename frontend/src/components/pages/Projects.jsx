@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaCode, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import LazyImage from "../common/LazyImage";
 import { projects } from "../../data/projectsData";
 
@@ -8,7 +8,8 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const handleProjectClick = (project) => {
-    const projectSlug = project.title.toLowerCase().replace(/\s+/g, "-");
+    const projectSlug =
+      project.slug || project.title.toLowerCase().replace(/\s+/g, "-");
     navigate(`/project/${projectSlug}`);
   };
 
@@ -68,11 +69,20 @@ const Projects = () => {
               onClick={() => handleProjectClick(project)}
             >
               <div className="relative overflow-hidden h-[250px]">
-                <LazyImage
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                {project.image ? (
+                  <LazyImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#111111] flex flex-col items-center justify-center gap-4 text-gray-300 transition-transform duration-300 group-hover:scale-105">
+                    <FaCode className="text-5xl text-white" />
+                    <span className="text-lg font-semibold">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
                 {/* Preview Overlay */}
                 <div className="absolute inset-0 bg-black/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <p className="text-white text-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -113,19 +123,21 @@ const Projects = () => {
                 </div>
 
                 <div className="flex items-center gap-2 mt-auto">
-                  <motion.a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white font-medium rounded-lg hover:bg-[#252525] transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    <span className="text-sm">View Code</span>
-                  </motion.a>
-                  {project.links.live && (
+                  {project.links?.github && (
+                    <motion.a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white font-medium rounded-lg hover:bg-[#252525] transition-colors duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      <span className="text-sm">View Code</span>
+                    </motion.a>
+                  )}
+                  {project.links?.live && (
                     <motion.a
                       href={project.links.live}
                       target="_blank"
@@ -138,6 +150,11 @@ const Projects = () => {
                       <FaExternalLinkAlt className="w-3 h-3" />
                       <span className="text-sm">Live Demo</span>
                     </motion.a>
+                  )}
+                  {!project.links?.github && !project.links?.live && (
+                    <span className="px-4 py-2 bg-[#1A1A1A] text-gray-300 font-medium rounded-lg text-sm">
+                      Case Study
+                    </span>
                   )}
                 </div>
               </div>

@@ -5,7 +5,6 @@ import {
   BiLogoJavascript,
   BiLogoReact,
   BiLogoTailwindCss,
-  BiLogoBootstrap,
   BiLogoPhp,
   BiLogoNodejs,
   BiLogoGit,
@@ -16,37 +15,46 @@ import {
   SiMysql,
   SiLaravel,
   SiExpress,
+  SiFlask,
   SiFirebase,
   SiSupabase,
-  SiPhpmyadmin,
+  SiPostgresql,
+  SiPython,
+  SiN8N,
   SiDocker,
   SiHostinger,
   SiGooglecloud,
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
-import { FaNetworkWired, FaCode } from "react-icons/fa";
+import { TbApi, TbSql, TbWebhook } from "react-icons/tb";
+import highLevelArrowsLogo from "../../assets/img/logos/highlevel-arrows.svg";
 
 const Skills = () => {
   const techStack = [
+    {
+      category: "Languages",
+      technologies: [
+        { name: "JavaScript", icon: BiLogoJavascript },
+        { name: "PHP", icon: BiLogoPhp },
+        { name: "SQL", icon: TbSql },
+        { name: "Python", icon: SiPython },
+      ],
+    },
     {
       category: "Frontend Development",
       technologies: [
         { name: "HTML", icon: AiFillHtml5 },
         { name: "CSS", icon: BiLogoCss3 },
-        { name: "JavaScript", icon: BiLogoJavascript },
-        { name: "React", icon: BiLogoReact },
+        { name: "React.js", icon: BiLogoReact },
         { name: "Tailwind CSS", icon: BiLogoTailwindCss },
-        { name: "Bootstrap", icon: BiLogoBootstrap },
       ],
     },
     {
       category: "Backend Development",
       technologies: [
-        { name: "PHP", icon: BiLogoPhp },
         { name: "Laravel", icon: SiLaravel },
-        { name: "Node.js", icon: BiLogoNodejs },
         { name: "Express", icon: SiExpress },
-        { name: "RESTful API", icon: TbApi },
+        { name: "Node.js", icon: BiLogoNodejs },
+        { name: "Flask", icon: SiFlask },
       ],
     },
     {
@@ -54,9 +62,18 @@ const Skills = () => {
       technologies: [
         { name: "MySQL", icon: SiMysql },
         { name: "MongoDB", icon: BiLogoMongodb },
-        { name: "Supabase", icon: SiSupabase },
+        { name: "PostgreSQL", icon: SiPostgresql },
         { name: "Firebase", icon: SiFirebase },
-        { name: "phpMyAdmin", icon: SiPhpmyadmin },
+        { name: "Supabase", icon: SiSupabase },
+      ],
+    },
+    {
+      category: "Automation & Integrations",
+      technologies: [
+        { name: "GoHighLevel", image: highLevelArrowsLogo },
+        { name: "n8n", icon: SiN8N },
+        { name: "REST APIs", icon: TbApi },
+        { name: "Webhooks", icon: TbWebhook },
       ],
     },
     {
@@ -68,13 +85,6 @@ const Skills = () => {
         { name: "Trello", icon: BiLogoTrello },
         { name: "Hostinger", icon: SiHostinger },
         { name: "GCP", icon: SiGooglecloud },
-      ],
-    },
-    {
-      category: "Technical Concepts",
-      technologies: [
-        { name: "OOP", icon: FaCode },
-        { name: "Networking", icon: FaNetworkWired },
       ],
     },
   ];
@@ -162,7 +172,16 @@ const Skills = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {tech.icon && <tech.icon className="text-2xl" />}
+                    {tech.image ? (
+                      <img
+                        src={tech.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-7 h-7 object-contain"
+                      />
+                    ) : (
+                      tech.icon && <tech.icon className="text-2xl" />
+                    )}
                     <h3 className="text-lg font-semibold text-white text-center">
                       {tech.name}
                     </h3>

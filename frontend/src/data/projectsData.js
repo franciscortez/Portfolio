@@ -8,7 +8,10 @@ import {
   SiPostgresql,
   SiReactquery,
   SiGoogle,
+  SiLaravel,
+  SiMysql,
 } from "react-icons/si";
+import { TbBrandOauth, TbWebhook } from "react-icons/tb";
 
 // Twitch Insight Images
 import twitchInsightImg from "@/assets/img/projects/twitch-insight/twitch-insight.png";
@@ -63,11 +66,12 @@ import portfolio6 from "@/assets/img/projects/portfolio/Screenshot 2026-05-08 19
 
 export const projects = [
   {
-    title: "Twitch Insight",
+    slug: "twitch-insight",
+    title: "Twitch Insights",
     description:
-      "Real-time sentiment analysis platform for Twitch streamers, powered by advanced NLP and machine learning. Provides instant audience engagement insights and emotional response tracking.",
+      "Full-stack web application that analyzes real-time Twitch chat sentiment using the RoBERTa NLP model and Twitch API.",
     details:
-      "Twitch Insight analyzes chat messages in real-time using the RoBERTa natural language processing model. By integrating with the Twitch API, we extract live chat comments and provide streamers with instant insights about their audience's emotional responses. The dashboard displays sentiment trends and engagement metrics, helping content creators better understand their community.",
+      "Twitch Insights analyzes chat messages in real time using the RoBERTa natural language processing model. It integrates with the Twitch API and provides interactive dashboards with sentiment graphs, reporting tools, and word clouds to help streamers understand audience sentiment.",
     type: "Capstone Project",
     technologies: [
       { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
@@ -113,11 +117,12 @@ export const projects = [
       "Real-time chat sentiment analysis",
       "RoBERTa NLP model integration",
       "Twitch API live data streaming",
-      "Interactive data visualization dashboard",
-      "Engagement metrics tracking",
+      "Interactive sentiment graphs and reporting tools",
+      "Word clouds for audience sentiment exploration",
     ],
   },
   {
+    slug: "budget-tracker",
     title: "Budget Tracker",
     description:
       "A scalable full-stack budget tracking application featuring real-time synchronization, AI-powered financial insights, and secure authentication.",

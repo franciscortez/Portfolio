@@ -7,6 +7,7 @@ import {
   FaArrowLeft,
   FaChevronLeft,
   FaChevronRight,
+  FaCode,
 } from "react-icons/fa";
 import { projects } from "../../data/projectsData";
 import LazyImage from "../common/LazyImage";
@@ -16,7 +17,7 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const project = projects.find(
-    (p) => p.title.toLowerCase().replace(/\s+/g, "-") === id
+    (p) => (p.slug || p.title.toLowerCase().replace(/\s+/g, "-")) === id
   );
 
   if (!project) {
@@ -38,13 +39,16 @@ const ProjectDetails = () => {
     );
   }
 
+  const galleryImages =
+    project.images?.length > 0 ? project.images : project.image ? [project.image] : [];
+
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
   };
 
   const previousImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + project.images.length) % project.images.length
+      (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
     );
   };
 
@@ -78,16 +82,25 @@ const ProjectDetails = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <LazyImage
-                  src={project.images[currentImageIndex]}
-                  alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover"
-                  eager
-                />
+                {galleryImages.length > 0 ? (
+                  <LazyImage
+                    src={galleryImages[currentImageIndex]}
+                    alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                    className="w-full h-full object-cover"
+                    eager
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#111111] flex flex-col items-center justify-center gap-5 text-gray-300">
+                    <FaCode className="text-6xl text-white" />
+                    <span className="text-2xl md:text-3xl font-semibold">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
 
-            {project.images.length > 1 && (
+            {galleryImages.length > 1 && (
               <>
                 <button
                   onClick={previousImage}
@@ -103,7 +116,7 @@ const ProjectDetails = () => {
                 </button>
 
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
-                  {project.images.map((_, index) => (
+                  {galleryImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
@@ -129,18 +142,20 @@ const ProjectDetails = () => {
               </span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-[#1A1A1A] text-white font-medium rounded-lg hover:bg-[#252525] transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaGithub className="w-5 h-5" />
-                <span>View Code</span>
-              </motion.a>
-              {project.links.live && (
+              {project.links?.github && (
+                <motion.a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#1A1A1A] text-white font-medium rounded-lg hover:bg-[#252525] transition-colors duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaGithub className="w-5 h-5" />
+                  <span>View Code</span>
+                </motion.a>
+              )}
+              {project.links?.live && (
                 <motion.a
                   href={project.links.live}
                   target="_blank"
@@ -152,6 +167,11 @@ const ProjectDetails = () => {
                   <FaExternalLinkAlt className="w-4 h-4" />
                   <span>Live Demo</span>
                 </motion.a>
+              )}
+              {!project.links?.github && !project.links?.live && (
+                <span className="flex items-center justify-center px-6 py-3 bg-[#1A1A1A] text-gray-300 font-medium rounded-lg">
+                  Private Professional Project
+                </span>
               )}
             </div>
           </div>

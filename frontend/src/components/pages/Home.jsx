@@ -69,9 +69,9 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            Full-stack developer building scalable web applications, RESTful
-            APIs, and seamless integrations using modern technologies and best
-            practices.
+            Full-stack developer building scalable React.js and Express
+            applications, RESTful APIs, backend systems, and third-party
+            integrations.
           </motion.p>
 
           <motion.div
@@ -88,7 +88,7 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Download CV
+              View CV
             </motion.a>
           </motion.div>
         </motion.div>
