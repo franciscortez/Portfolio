@@ -11,6 +11,7 @@ import "./App.css";
 // Lazy load page components for better performance
 const Home = lazy(() => import("./components/pages/Home"));
 const Skills = lazy(() => import("./components/pages/Skills"));
+const Services = lazy(() => import("./components/pages/Services"));
 const Profile = lazy(() => import("./components/pages/Profile"));
 const Projects = lazy(() => import("./components/pages/Projects"));
 const Contact = lazy(() => import("./components/pages/Contact"));
@@ -27,6 +28,12 @@ const LandingPage = () => (
 
     <section id="skills">
       <Skills />
+    </section>
+
+    <hr className="section-divider" />
+
+    <section id="services">
+      <Services />
     </section>
 
     <hr className="section-divider" />
@@ -59,6 +66,7 @@ function AppContent() {
 
   return (
     <div className="app">
+      <Navbar />
       <Suspense
         fallback={
           <div className="flex items-center justify-center min-h-screen">
